@@ -9,3 +9,6 @@ admin123
 
 jcesperanza@neu.edu.ph
 123123
+
+==live application==
+https://joshvisitacion.github.io/neulibrary/
