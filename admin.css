@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    --success-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    --error-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    width: var(--size, 50px);
+    height: var(--size, 50px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    animation: float 20s infinite linear;
+    animation-delay: var(--delay);
+}
+
+/* Main App Container */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Glassmorphism Login Card */
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(50px);
+    border-radius: 32px;
+    border: 1px solid var(--glass-border);
+    padding: 3.5rem 3rem;
+    box-shadow: 
+        0 25px 45px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(255,255,255,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+
+.login-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Card Header */
+.card-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-gradient);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.admin-badge {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.admin-badge span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Input Groups - FIXED AND ENHANCED */
+.input-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper label {
+    position: absolute;
+    top: 1.2rem;
+    left: 3.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    background: transparent;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label {
+    top: -0.6rem;
+    left: 2rem;
+    font-size: 0.75rem;
+    color: #4ecdc4;
+    background: var(--glass-bg);
+    padding: 0 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.input-wrapper input::placeholder {
+    color: transparent;
+}
+
+.input-wrapper input:focus {
+    border-color: rgba(78, 205, 196, 0.5);
+    box-shadow: 
+        0 0 0 4px rgba(78, 205, 196, 0.1),
+        0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+/* Username Icon */
+.username-icon {
+    position: absolute;
+    left: 1.5rem;
+    top: 1.75rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within .username-icon {
+    color: #4ecdc4;
+    transform: scale(1.1);
+}
+
+/* Password Field - ENHANCED */
+.password-wrapper {
+    position: relative;
+}
+
+.password-icon {
+    position: absolute;
+    left: 1.5rem;
+    top: 1.75rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within .password-icon {
+    color: #4ecdc4;
+    transform: scale(1.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.75rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+    padding: 0.25rem;
+    border-radius: 50%;
+}
+
+.toggle-password:hover {
+    color: #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+    transform: scale(1.15) rotate(180deg);
+}
+
+.toggle-password.show {
+    color: #4ecdc4;
+}
+
+/* Gradient Button */
+.gradient-btn {
+    width: 100%;
+    position: relative;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 28px;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+}
+
+.gradient-btn:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(255, 107, 107, 0.6);
+}
+
+.gradient-btn:active {
+    transform: translateY(-2px);
+}
+
+.gradient-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.7s;
+}
+
+.gradient-btn:hover .btn-glow {
+    left: 100%;
+}
+
+/* Toast System */
+.toast-container {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.toast {
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 400px;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast.success {
+    border-color: rgba(78, 205, 196, 0.5);
+    background: rgba(78, 205, 196, 0.15);
+}
+
+.toast.error {
+    border-color: rgba(255, 107, 107, 0.5);
+    background: rgba(255, 107, 107, 0.15);
+}
+
+.toast i {
+    font-size: 1.3rem;
+    min-width: 1.3rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animations */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-10px) rotateX(2deg); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.4;
+    }
+    33% {
+        transform: translateY(-30px) translateX(30px) rotate(120deg);
+        opacity: 0.6;
+    }
+}
+
+input:invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+input:valid {
+    border-color: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+/* Shake Animation for Errors */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
