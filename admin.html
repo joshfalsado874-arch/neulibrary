@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+        <div class="particle" style="--size: 40px; --delay: 0s; left: 10%;"></div>
+        <div class="particle" style="--size: 60px; --delay: -5s; left: 20%;"></div>
+        <div class="particle" style="--size: 30px; --delay: -10s; left: 80%;"></div>
+        <div class="particle" style="--size: 50px; --delay: -15s; left: 90%;"></div>
+        <div class="particle" style="--size: 35px; --delay: -2s; left: 60%;"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <div class="login-card">
+
+            <!-- Header -->
+            <div class="card-header">
+                <div class="logo-container">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="admin-badge">
+                        <span>ADMIN</span>
+                    </div>
+                </div>
+
+                <h1 class="gradient-text">Admin Panel</h1>
+                <p class="subtitle">Secure access required</p>
+            </div>
+
+            <!-- FORM -->
+            <form id="adminLoginForm">
+
+                <!-- EMAIL -->
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-user username-icon"></i>
+                        <input type="email" id="username" required placeholder=" ">
+                        <label>Email</label>
+                    </div>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+                    <div class="input-wrapper password-wrapper">
+                        <i class="fas fa-lock password-icon"></i>
+                        <input type="password" id="password" required placeholder=" ">
+                        <label>Password</label>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <!-- BUTTON -->
+                <button type="submit" class="gradient-btn">
+                    <div class="btn-content">
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span id="loginText">Login to Admin</span>
+                    </div>
+                    <div class="btn-glow"></div>
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- IMPORTANT -->
+    <script type="module" src="admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - neu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="register.css">
+
+    <style>
+        .user-type-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .user-type-option {
+            flex: 1;
+            min-width: 140px;
+        }
+        .user-type-option input[type="radio"] {
+            display: none;
+        }
+        .user-type-option label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .user-type-option input[type="radio"]:checked + label {
+            border-color: #3498db;
+            background: #3498db;
+            color: white;
+        }
+        .student-icon { color: #2ecc71; }
+        .faculty-icon { color: #f39c12; }
+    </style>
+</head>
+
+<body>
+    <div class="register-page">
+
+        <div class="floating-elements">
+            <div class="floating-circle circle-1"></div>
+            <div class="floating-circle circle-2"></div>
+            <div class="floating-circle circle-3"></div>
+        </div>
+
+        <div class="hero">
+            <div class="container">
+
+                <!-- HEADER -->
+                <div class="header">
+                    <h1>
+                        <i class="fas fa-user-plus"></i>
+                        neu
+                    </h1>
+                    <p>Join our community and get started today</p>
+                </div>
+
+                <div class="register-content">
+
+                    <!-- LEFT TEXT -->
+                    <div class="register-text">
+                        <h2>Welcome to neu</h2>
+                        <p>Create your account and unlock unlimited possibilities.</p>
+                    </div>
+
+                    <!-- FORM -->
+                    <div class="register-form-container">
+
+                        <div class="form-header">
+                            <h3>Create Account</h3>
+                            <p>Fill in the details to get started</p>
+                        </div>
+
+                        <form id="registerForm">
+
+                            <!-- USER TYPE -->
+                            <div class="form-group">
+                                <label>User Type *</label>
+
+                                <div class="user-type-group">
+
+                                    <div class="user-type-option">
+                                        <input type="radio" id="student" name="userType" value="student" required>
+                                        <label for="student">
+                                            <i class="fas fa-user-graduate student-icon"></i>
+                                            Student
+                                        </label>
+                                    </div>
+
+                                    <div class="user-type-option">
+                                        <input type="radio" id="faculty" name="userType" value="faculty" required>
+                                        <label for="faculty">
+                                            <i class="fas fa-chalkboard-teacher faculty-icon"></i>
+                                            Faculty
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- NAME -->
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="fullName" required>
+                            </div>
+
+                            <!-- EMAIL -->
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+
+                            <!-- PASSWORD -->
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="password" required>
+                            </div>
+
+                            <!-- CONFIRM -->
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+
+                            <!-- NEW: DEPARTMENT -->
+                            <div class="form-group">
+                                <label>College Department *</label>
+                                <select id="department" required>
+                                    <option value="" disabled selected>Select Department</option>
+                                    <option value="College of Engineering">College of Engineering</option>
+                                    <option value="College of Business">College of Business</option>
+                                    <option value="College of Arts and Sciences">College of Arts and Sciences</option>
+                                </select>
+                            </div>
+
+                            <!-- NEW: COURSE / PROGRAM -->
+                            <div class="form-group">
+                                <label>Course / Program *</label>
+                                <select id="courseProgram" required>
+                                    <option value="" disabled selected>Select Course / Program</option>
+                                </select>
+                            </div>
+
+                            <!-- TERMS -->
+                            <div class="checkbox-group">
+                                <input type="checkbox" required>
+                                <label>I agree to Terms</label>
+                            </div>
+
+                            <!-- BUTTONS -->
+                            <div class="cta-buttons">
+                                <button type="submit" class="btn btn-primary">
+                                    Create Account
+                                </button>
+
+                                <a href="login.html" class="btn btn-secondary">
+                                    Already have an account? <i class="fas fa-sign-in-alt"></i> Login
+                                </a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ IMPORTANT: MODULE -->
+    <script type="module" src="register.js"></script>
+
+</body>
+</html>
